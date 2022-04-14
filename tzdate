@@ -1,0 +1,4 @@
+#!/bin/sh -u
+
+ZONETAB=/usr/share/zoneinfo/zone.tab
+TZ=`cat ${ZONETAB} | awk '/^[A-Z][A-Z]/ {printf "%s\t%s\n", $1, $3}' | peco | cut -f2` date
